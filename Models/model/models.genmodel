@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Models/src-gen" creationIcons="false" editDirectory="/Models.edit/src-gen"
+    editorDirectory="/Models.editor/src-gen" modelPluginID="Models" modelName="Models"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.example.org/models" value="modelsXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>models.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Models" disposableProviderFactory="true" ecorePackage="models.ecore#/">
+    <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+      <genAnnotations source="modelsXMI.xsd"/>
+    </genAnnotations>
+    <genClasses ecoreClass="models.ecore#//aws_iam_user">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_user/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_iam_policy">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_policy/aws_iam_role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_policy/aws_s3_bucket"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_policy/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_s3_bucket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_s3_bucket/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_s3_bucket/bucket"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_iam_user_policy_attachment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_user_policy_attachment/aws_iam_policy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_user_policy_attachment/aws_iam_user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_user_policy_attachment/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_iam_role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_role/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_iam_instance_profile">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_instance_profile/aws_iam_role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_instance_profile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_iam_role_policy_attachment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_role_policy_attachment/aws_iam_role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_iam_role_policy_attachment/aws_iam_policy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_iam_role_policy_attachment/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_security_group">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_security_group/name"/>
+    </genClasses>
+    <genClasses ecoreClass="models.ecore#//aws_ec2_instance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_ec2_instance/aws_security_group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference models.ecore#//aws_ec2_instance/aws_iam_instance_profile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_ec2_instance/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_ec2_instance/ami"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute models.ecore#//aws_ec2_instance/instance_type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

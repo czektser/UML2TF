@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="vsphere_psm" nsURI="http://www.example.org/vsphere_psm" nsPrefix="vsphere_psm">
+  <eClassifiers xsi:type="ecore:EClass" name="Vsphere_virtual_machine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num_cpus" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="memory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="network_interface" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disk" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extra_config" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vsphere_datacenter" eType="#//vsphere_datacenter.1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vsphere_datastore" eType="#//vsphere_datastore"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="null_resource" instanceClassName="NullResource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vsphere_virtual_machine"
+        eType="#//Vsphere_virtual_machine"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="provisioner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="NewDataType1" instanceTypeName="newDataType1"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="vsphere_datacenter" instanceTypeName="vsphere_datacente"/>
+  <eClassifiers xsi:type="ecore:EClass" name="vsphere_datacenter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="vsphere_datastore">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vsphere_datacenter" eType="#//vsphere_datacenter.1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vsphere_compute_cluster">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vsphere_datacenter" eType="#//vsphere_datacenter.1"/>
+  </eClassifiers>
+</ecore:EPackage>

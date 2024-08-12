@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateElement(ePack : EPackage)]
+[comment @main/]
+[file (ePack.name + '.tf', false, 'UTF-8')]
+[for (class: EClass | ePack.eClassifiers->filter(EClass))]
+resource "[class.name/]" [class.name/] {
+[for (attr: EAttribute | class.eAllAttributes)]
+[if attr.eGet(attr) <> null]
+[attr.name/]: [attr.eGet(attr).toString()/]
+[/if]
+[/for]
+}
+
+[/for]
+[/file]
+[/template]

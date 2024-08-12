@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="models" nsURI="http://www.example.org/models" nsPrefix="models">
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_user" instanceClassName="AwsIamUser">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_policy" instanceClassName="AwsIamPolicy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_role" eType="#//aws_iam_role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_s3_bucket" upperBound="-1"
+        eType="#//aws_s3_bucket"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="names" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_s3_bucket" instanceClassName="AwsS3Bucket">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_user_policy_attachment" instanceTypeName="AwsIamUserPolicyAttachment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_policy" eType="#//aws_iam_policy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_user" eType="#//aws_iam_user"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_role" instanceClassName="AwsIamRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_instance_profile" instanceClassName="AwsIamInstanceProfile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_role" eType="#//aws_iam_role"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_iam_role_policy_attachment" instanceClassName="AwsIamRolePolicyAttachment"
+      eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EAttribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_role" eType="#//aws_iam_role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_policy" eType="#//aws_iam_policy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_security_group" instanceClassName="AwsSecurityGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="aws_instance" instanceClassName="AwsInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_security_group" upperBound="-1"
+        eType="#//aws_security_group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aws_iam_instance_profile"
+        eType="#//aws_iam_instance_profile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+ 
+</ecore:EPackage>
+
+

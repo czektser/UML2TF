@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:models="http://www.example.org/models" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/models">
+    
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+    
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+    
+  <xsd:complexType name="aws_iam_user">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_user" type="models:aws_iam_user"/>
+    
+  <xsd:complexType name="aws_iam_policy">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element name="aws_iam_role" type="models:aws_iam_role"/>
+            
+      <xsd:element name="aws_s3_bucket" type="models:aws_s3_bucket"/>
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="names" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_iam_role" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_s3_bucket" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_policy" type="models:aws_iam_policy"/>
+    
+  <xsd:complexType name="aws_s3_bucket">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="bucket" type="xsd:string" use="required"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_s3_bucket" type="models:aws_s3_bucket"/>
+    
+  <xsd:complexType name="aws_iam_user_policy_attachment">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element name="aws_iam_policy" type="models:aws_iam_policy"/>
+            
+      <xsd:element name="aws_iam_user" type="models:aws_iam_user"/>
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+        
+    <xsd:attribute name="aws_iam_policy" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_iam_user" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_user_policy_attachment" type="models:aws_iam_user_policy_attachment"/>
+    
+  <xsd:complexType name="aws_iam_role">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_role" type="models:aws_iam_role"/>
+    
+  <xsd:complexType name="aws_iam_instance_profile">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element name="aws_iam_role" type="models:aws_iam_role"/>
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_iam_role" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_instance_profile" type="models:aws_iam_instance_profile"/>
+    
+  <xsd:complexType name="aws_iam_role_policy_attachment">
+        
+    <xsd:complexContent>
+            
+      <xsd:extension base="ecore:EAttribute">
+                
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+                    
+          <xsd:element name="aws_iam_role" type="models:aws_iam_role"/>
+                    
+          <xsd:element name="aws_iam_policy" type="models:aws_iam_policy"/>
+                  
+        </xsd:choice>
+                
+        <xsd:attribute name="aws_iam_role" type="xsd:string"/>
+                
+        <xsd:attribute name="aws_iam_policy" type="xsd:string"/>
+              
+      </xsd:extension>
+          
+    </xsd:complexContent>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_iam_role_policy_attachment" type="models:aws_iam_role_policy_attachment"/>
+    
+  <xsd:complexType name="aws_security_group">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_security_group" type="models:aws_security_group"/>
+    
+  <xsd:complexType name="aws_instance">
+        
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            
+      <xsd:element name="aws_security_group" type="models:aws_security_group"/>
+            
+      <xsd:element name="aws_iam_instance_profile" type="models:aws_iam_instance_profile"/>
+            
+      <xsd:element ref="xmi:Extension"/>
+          
+    </xsd:choice>
+        
+    <xsd:attribute ref="xmi:id"/>
+        
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+        
+    <xsd:attribute name="name" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_security_group" type="xsd:string"/>
+        
+    <xsd:attribute name="aws_iam_instance_profile" type="xsd:string"/>
+      
+  </xsd:complexType>
+    
+  <xsd:element name="aws_instance" type="models:aws_instance"/>
+  
+</xsd:schema>

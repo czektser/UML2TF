@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:models="http://www.example.org/models" xsi:schemaLocation="http://www.example.org/models My.ecore"/>

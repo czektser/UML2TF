@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models:aws_iam_user
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:models="http://www.example.org/models"
+    name="test"/>

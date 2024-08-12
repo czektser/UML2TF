@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/azure_psm/src-gen" creationIcons="false" editDirectory="/azure_psm.edit/src-gen"
+    editorDirectory="/azure_psm.editor/src-gen" modelPluginID="azure_psm" modelName="Azure_psm"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>azure_psm.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Azure_psm" disposableProviderFactory="true" ecorePackage="azure_psm.ecore#/">
+    <genClasses ecoreClass="azure_psm.ecore#//azuread_user">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azuread_user/user_principal_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azuread_user/display_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azuread_user/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azuread_user/password"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_resource_group">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_resource_group/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_resource_group/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_resource_group/account_tier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_resource_group/account_replication_type"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_storage_account">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_storage_account/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_storage_account/account_replication_type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurem_storage_account/azurem_resource_group"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_storage_container">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_storage_container/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_storage_container/container_access_type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurem_storage_container/azurem_storage_account"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_virtual_network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_virtual_network/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_virtual_network/address_space"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurem_virtual_network/azurem_resource_group"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_subnet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_subnet/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_subnet/address_prefixes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurem_subnet/azurem_resource_group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurem_subnet/azurem_virtual_network"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//Azurem_network_interface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//Azurem_network_interface/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//Azurem_network_interface/ip_configuration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//Azurem_network_interface/azurem_subnet"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//Azurem_network_interface/azurem_resource_group"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurerm_user_assigned_identity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_user_assigned_identity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_user_assigned_identity/azurem_resource_group"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurerm_linux_virtual_machine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/admmin_user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/network_interface_ids"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/admin_ssh_key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/os_disk"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/source_image_reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_linux_virtual_machine/identity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_linux_virtual_machine/azurem_resource_group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_linux_virtual_machine/azurem_network_interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_linux_virtual_machine/azurerm_user_assigned_identity"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurerm_role_assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_role_assignment/role_definition_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_role_assignment/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_role_assignment/azurerm_user_assigned_identity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_role_assignment/azurem_storage_account"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_role_assignment/azurem_ad_user"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//azurerm_public_ip">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_public_ip/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurerm_public_ip/allocation_method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference azure_psm.ecore#//azurerm_public_ip/azurem_resource_group"/>
+    </genClasses>
+    <genClasses ecoreClass="azure_psm.ecore#//"/>
+    <genClasses ecoreClass="azure_psm.ecore#//azurem_ad_user">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_ad_user/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_ad_user/user_principal_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute azure_psm.ecore#//azurem_ad_user/password"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

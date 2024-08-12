@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="azure_psm" nsURI="http://www.example.org/azure_psm" nsPrefix="azure_psm">
+  <eClassifiers xsi:type="ecore:EClass" name="azuread_user" instanceClassName="AzureADUser">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user_principal_name" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="display_name" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_resource_group" instanceClassName="AzuremResourceGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="account_tier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="account_replication_type"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_storage_account" instanceClassName="AzuremStorageAccount">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="account_replication_type"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_storage_container" instanceTypeName="AzuremStorageContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="container_access_type"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_storage_account"
+        eType="#//azurem_storage_account"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_virtual_network" instanceClassName="AzuremVirtualNetwork">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address_space" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_subnet" instanceClassName="AzuremSubnet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address_prefixes" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_virtual_network"
+        eType="#//azurem_virtual_network"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Azurem_network_interface" instanceClassName="AzuremNetworkInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip_configuration" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_subnet" eType="#//azurem_subnet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurerm_user_assigned_identity" instanceClassName="AzuremUserAssignedIdentity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurerm_linux_virtual_machine" instanceClassName="AzuremVirtualMachine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="admmin_user" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="network_interface_ids"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="admin_ssh_key" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="os_disk" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source_image_reference"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_network_interface"
+        eType="#//Azurem_network_interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurerm_user_assigned_identity"
+        eType="#//azurerm_user_assigned_identity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurerm_role_assignment" instanceClassName="AzuremRoleAssignment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role_definition_name" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurerm_user_assigned_identity"
+        eType="#//azurerm_user_assigned_identity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_storage_account"
+        eType="#//azurem_storage_account"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_ad_user" eType="#//azurem_ad_user"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="azurerm_public_ip" instanceClassName="AzuremPublicIP">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocation_method" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="azurem_resource_group"
+        eType="#//azurem_resource_group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name=""/>
+  <eClassifiers xsi:type="ecore:EClass" name="azurem_ad_user" instanceClassName="AzuremADUser">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user_principal_name" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

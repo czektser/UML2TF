@@ -1,0 +1,9 @@
+context aws_iam_user
+inv AccessTimeConstraint:
+    let currentTime : Time = currentTime() in
+    let currentDay : DayOfWeek = currentDay() in
+    let accessAllowed : Boolean = 
+        currentDay >= DayOfWeek::Monday and currentDay <= DayOfWeek::Friday and
+        currentTime >= Time::fromHourMinute(9, 0) and currentTime <= Time::fromHourMinute(17, 0) 
+    in
+    self.hasAccess implies accessAllowed
